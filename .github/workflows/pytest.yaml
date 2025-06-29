@@ -34,3 +34,10 @@ jobs:
 
       - name: Print secrets
         run: echo "YOM_API_KEY -> ${{ secrets.YOM_API_KEY }}"
+
+      - name: Get time
+        id: get_time
+        run: echo "time=$(date)" >> $GITHUB_OUTPUT
+
+      - name: Print github GITHUB_OUTPUT
+        run: echo "１つ前のstepの出力は${{ steps.get_time.outputs.time }}です"
